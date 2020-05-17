@@ -37,26 +37,23 @@ router.post("/post",async(req,res)=>{
     //we add to constants all the information from the body we receive from the request
     const question = req.body.question;
     const category = req.body.category;
-    const answers = [{
-        answer1: req.body.answer1,
-        isCorrect:req.body.isCorrect1
-    },{
-        answer2: req.body.answer2,
-        isCorrect:req.body.isCorrect2
-    },{
-        answer3: req.body.answer3,
-        isCorrect:req.body.isCorrect3
-    }]
+    const answer1 =  req.body.answer1;
+    const answer2 = req.body.answer2;
+    const answer3 = req.body.answer3;
+    const isCorrect = req.body.isCorrect;
     //we add all the information into a new object
     const newQuestion = {
         question,
         category,
-        answers
+        answer1,
+        answer2,
+        answer3,
+        isCorrect
     }
     console.log(newQuestion);
     //then we create a new QuizQuestion by passing in the .create method the object we created earlier
     const AddedQuestion = await QuizQuestion.create(newQuestion);
-    res.redirect("/")
+    res.redirect("/api")
 });
 
 //edit one question from db based on objectid(req.params.id)
@@ -89,7 +86,7 @@ router.put("/:id/put", async (req,res)=>{
 //delete one questions from db based on objectid(req.params.id)
 router.delete("/:id/delete", async(req,res)=>{
     await QuizQuestion.findByIdAndDelete(req.params.id);
-    res.redirect("/")
+    res.redirect("/api")
 })
 
 module.exports = router;

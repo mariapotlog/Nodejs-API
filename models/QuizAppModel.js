@@ -7,7 +7,18 @@ const QuizQuestionSchema = new Schema({
     category:{
         type:String,
     },
-    answers:[]
+    answer1:{
+        type:String
+    },
+    answer2:{
+        type:String
+    },
+    answer3:{
+        type:String
+    },
+    isCorrect:{
+        type:String
+    }
 })
 //we create this QuizQuestion constant in order to access it inside our app
 module.exports = mongoose.model("QuizQuestion", QuizQuestionSchema)
