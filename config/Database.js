@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
 const db = process.env.DATABASE;
-require("dotenv").config();
+const app = require("../app");
+
+// if(app.get('env') == "development"){
+//     require("dotenv").config();
+// }
 module.exports = {
     async Connect() {
         try{
             //we connect to the mongodb local server, it runs on port 27017
             await mongoose.connect(
-                "mongodb://localhost:27017/QuizApp" , {
+                process.env.DATABASE , {
                     useNewUrlParser:true,
                     useUnifiedTopology:true,
                     useCreateIndex:true,
