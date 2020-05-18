@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":" nodemon app.js",
-    "install":"npm install --save"
+    "start":" node app.js",
   },
   "author": "",
   "license": "ISC",
