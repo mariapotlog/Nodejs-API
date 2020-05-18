@@ -7,12 +7,12 @@ const mongoose = require("mongoose");
 const {Connect} = require("./config/Database");
 //we instanciate express
 const app = express();
-Connect();
 //we tell our app to check if its in development, and if it is require the dotenv module
 //module that helps us to store values in a safe way
 if(app.get('env') == "development"){
     require("dotenv").config();
 }
+Connect();
 //we tell our app to use cors
 app.use(cors());
 //we tell our app to use the express.urlencoded option

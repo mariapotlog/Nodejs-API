@@ -1,10 +1,4 @@
 const mongoose = require("mongoose");
-const db = process.env.DATABASE;
-const app = require("../app");
-
-// if(app.get('env') == "development"){
-//     require("dotenv").config();
-// }
 module.exports = {
     async Connect() {
         try{
